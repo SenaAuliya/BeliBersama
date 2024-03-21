@@ -4,7 +4,7 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <footer className="flex lg:flex-row flex-col lg:justify-between justify-start lg:items-center bg-secondary text-white w-full h-full lg:py-[82px] p-[24px] lg:px-[139px] lg:gap-0 gap-[52px] m-0 lg:text-[20px] text-[16px]">
+    <footer className="flex lg:flex-row flex-col lg:justify-between justify-start lg:items-center bg-secondary text-white w-full h-full lg:py-[82px] p-[24px] lg:px-[139px] lg:gap-0 gap-[52px] m-0 lg:text-[20px] text-[16px] text-thirdary">
       <div className="flex flex-col gap-[25px]">
         <div className="flex flex-row items-center gap-5">
           <div className="w-[66px] h-[66px] text-[20px]">

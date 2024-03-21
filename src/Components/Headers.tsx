@@ -27,7 +27,7 @@ export default function Headers() {
 
   const categories = ['Makanan', 'Minuman']
   return (
-    <header className="lg:border-secondary lg:border-t-[20px] p-5 min-h-[80px] shadow-sm text-secondary">
+    <header className="lg:border-secondary lg:border-t-[20px] p-5 min-h-[80px] shadow-sm text-secondary sticky top-0 z-50   bg-thirdary">
       <nav className="flex justify-between text-primary">
         <div className="flex flex-row justify-start gap-5 items-center">
           <div className="lg:w-16 lg:h-16 w-[40px] h-[40px] ">

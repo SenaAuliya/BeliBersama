@@ -28,7 +28,7 @@ export default async function Home() {
             <h4 className="lg:text-[38px] font-medium lg:w-[588px] text-secondary text-[28px] w-[382px]">
               Dapatkan barang berkualitas dengan belanja di sini
             </h4>
-            <button className="bg-secondary lg:w-[213px] h-[68px] rounded-xl text-white my-7 w-full text-[20px]">
+            <button className="bg-secondary lg:w-[213px] h-[68px] rounded-xl text-white my-7 w-full text-[20px] text-thirdary">
               Beli Sekarang
             </button>
           </div>

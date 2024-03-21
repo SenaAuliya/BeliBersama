@@ -20,7 +20,7 @@ export default function Profile({ image, userName }: ProfilePicture) {
         <div className='absolute top-full right-0 mt-2 bg-thirdary shadow-md rounded-md text-[18px] font-medium w-[270px]'>
           <p className="p-4">Hi, {userName}</p>
           <hr className="border-hijau my-3" />
-          <Link href={'/tentang-kami'} className="p-4 items-center align-middle">Tentang Kami</Link>
+          <Link href={'/about'} className="p-4 items-center align-middle">Tentang Kami</Link>
           <hr className="border-hijau my-3" />
           <Link href={'/FAQ'} className="p-4 items-center align-middle mb-4">FAQ</Link>
           <hr className="border-hijau my-3" />
