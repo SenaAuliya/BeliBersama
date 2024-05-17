@@ -2,12 +2,12 @@
 import React, {  useState } from 'react';
 import { ChevronRight, ChevronDown } from 'lucide-react';
 
-const AccordionItem = ({ title, children, openAccordion, setOpenAccordion }: { title: string; children: React.ReactNode; openAccordion: string | null; setOpenAccordion: (id: string | null) => void; }) => {
+const Accordion= ({ title, children, openAccordion, setOpenAccordion }: { title: string; children: React.ReactNode; openAccordion: string | null; setOpenAccordion: (id: string | null) => void; }) => {
   const isOpen = openAccordion === title;
 
   return (
     <div className="border-b-secondary border-1 rounded w-full relative inline-block">
-      <div className="flex justify-between items-center p-4 cursor-pointer lg:w-[692px]  mr-5" onClick={() => setOpenAccordion(isOpen ? null : title)}>
+      <div className="flex justify-between items-center p-4 cursor-  mr-5" onClick={() => setOpenAccordion(isOpen ? null : title)}>
         <h2 className="lg:text-xl text-lg font-semibold w-full">{title}</h2>
         <span>{!isOpen ? (
             <div><ChevronRight/></div>
@@ -25,4 +25,4 @@ const AccordionItem = ({ title, children, openAccordion, setOpenAccordion }: { t
   );
 };
 
-export default AccordionItem;
+export default Accordion;

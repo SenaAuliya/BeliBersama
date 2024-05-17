@@ -1,4 +1,4 @@
-import { login, loginWithGoogle } from "@/app/lib/sevice";
+import { login, loginWithGoogle } from "@/app/lib/service";
 import { compare } from "bcrypt";
 import { NextAuthOptions } from "next-auth";
 import NextAuth from "next-auth/next";
@@ -54,7 +54,7 @@ const authOptions: NextAuthOptions = {
           type: "google",
         };
         await loginWithGoogle(data, (result: {status:boolean; data:any}) => {
-            if(result){
+            if(result.status){
                 token.email = result.data.email;
                 token.fullname = result.data.fullname;
                 token.role = result.data.role
@@ -76,6 +76,9 @@ const authOptions: NextAuthOptions = {
       return session;
     },
   },
+  pages:{
+    signIn:"/auth/login"
+  }
 };
 
 const handler = NextAuth(authOptions);

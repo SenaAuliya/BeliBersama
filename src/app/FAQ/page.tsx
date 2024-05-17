@@ -1,7 +1,7 @@
 "use client"
 import Footer from '@/Components/Footer'
 import Headers from '@/Components/Headers'
-import AccordionItem from '@/utils/Accordion'
+import AccordionItem from '@/Components/Accordion'
 import Image from 'next/image'
 import React, { useState } from 'react'
 

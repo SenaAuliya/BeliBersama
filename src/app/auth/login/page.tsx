@@ -75,7 +75,7 @@ export default function page({searchParams}: any) {
         </button>
 
       <div className='flex justify-center items-center'>
-      <h6 className='lg:text-[18px] text-[13px]'>Belum mempunyai akun? <Link href={'/register'} className='underline'>Daftar</Link></h6>
+      <h6 className='lg:text-[18px] text-[13px]'>Belum mempunyai akun? <Link href={'/auth/register'} className='underline'>Daftar</Link></h6>
       </div>
         
     </div>

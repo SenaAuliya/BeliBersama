@@ -3,8 +3,8 @@ import { signIn, useSession, signOut } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
-import Dropdown from "../utils/Dropdown";
-import Profile from "../utils/ProfilePicture";
+import Dropdown from "./Dropdown";
+import Profile from "./ProfilePicture";
 import { Menu, Search, X } from "lucide-react";
 
 export default function Headers() {
@@ -42,23 +42,23 @@ export default function Headers() {
           <h1 className="lg:text-xl text-[15px] font-semibold">Beli Bersama</h1>
         </div>
 
-        <ul className="lg:flex lg:flex-row lg:gap-7 lg:text-xl lg:items-center lg:justify-center hidden">
+        <ul className="lg:flex lg:flex-row lg:gap-7 lg:text-xl items-center justify-center hidden">
           <li>
             <Link href={"/"}>Beranda</Link>
           </li>
           <li>
-            <Link href={"/kategori"}>Populer</Link>
+            <Link href={'/FAQ'}>FAQ</Link>
           </li>
           <li>
-            <Dropdown/>
+            <Link href={'/about'}>Tentang</Link>
           </li>
         </ul>
 
         <div className="gap-5 items-center hidden lg:flex">
-          <Link href={'/kategori'}> <Search/> </Link>
+          <Link href={'/product'}> <Search/> </Link>
           <div className="flex items-center">
             {status === "authenticated" ? (
-              <Profile image={session?.user?.image} userName={session?.user?.fullname}/>
+              <Profile image={session?.user?.image} userName={session?.user?.fullname} email={session?.user?.email}/>
             ) : (
               <div>
                 <button onClick={() => signIn()}>Sign In</button>
@@ -71,10 +71,10 @@ export default function Headers() {
           <button className="" onClick={() => setIsOpen((prev) => !prev)}>
               {!isOpen ? (<><Menu/></>):(<><X/></>)}
           </button>
-          <Link href={'/kategori'}> <Search/> </Link>
+          <Link href={'/product'}> <Search className="lg:w-16 lg:h-16"/> </Link>
           </div>
           {isOpen && (
-  <div ref={ref} className={`h-screen bg-white text-primary flex flex-col items-center fixed w-[70%] transition-all right-0 top-0`}>
+  <div ref={ref} className={`h-screen bg-white text-primary flex flex-col items-center fixed w-[70%] transition-all right-0 top-0 bg-thirdary`}>
 
     <div className="flex flex-col items-center mt-10 gap-2">
       <div className="w-[46px] h-[46px]">
@@ -85,10 +85,6 @@ export default function Headers() {
 
     <div className="mt-6 items-start flex flex-col justify-center">
       <Link href={'/'} className="mb-[15px] text-[20px]">Beranda</Link>
-      <hr className="border-primary border opacity-[20%] w-[147px]"/>
-    </div>
-    <div className="mt-6 items-start flex flex-col justify-center">
-      <Link href={'/kategori'} className="mb-[15px] text-[20px]">Populer</Link>
       <hr className="border-primary border opacity-[20%] w-[147px]"/>
     </div>
     <div className="mt-6 items-start flex flex-col justify-center">

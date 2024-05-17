@@ -1,6 +1,6 @@
 import Footer from "@/Components/Footer";
 import Headers from "@/Components/Headers";
-import Carousel from "@/utils/Carousel";
+import Carousel from "@/Components/Carousel";
 import Carousel2 from "@/Components/Carousel";
 import React from "react";
 import Image from "next/image";

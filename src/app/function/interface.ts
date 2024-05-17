@@ -18,4 +18,5 @@ export  interface DetailedProduct{
 export interface ProfilePicture{
     image:any
     userName:string
+    email: string
 }

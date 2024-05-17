@@ -1,4 +1,4 @@
-import { register } from "@/app/lib/sevice";
+import { register } from "@/app/lib/service";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(request: NextRequest){

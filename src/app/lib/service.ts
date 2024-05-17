@@ -46,7 +46,7 @@ export async function register(data: {
 
 export async function login(data:{email:string}){
   const q = query(
-    collection(firestore, 'userss'),
+    collection(firestore, 'users'),
     where('email', '==', data.email)
   )
 
@@ -88,3 +88,4 @@ export async function loginWithGoogle(data:any, callback:any){
   }
   
 }
+

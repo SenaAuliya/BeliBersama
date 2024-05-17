@@ -5,7 +5,7 @@ import Footer from "@/Components/Footer";
 import { client } from "../../sanity/lib/client";
 import { Products } from "./function/interface";
 async function getData() {
-  const query = `*[_type == 'Products'][0...4] | order(__createdAt desc) {
+  const query = `*[_type == 'Products'][0...4]| order(__createdAt desc) {
     _id,
       price,
       title,
@@ -28,9 +28,9 @@ export default async function Home() {
             <h4 className="lg:text-[38px] font-medium lg:w-[588px] text-secondary text-[28px] w-[382px]">
               Dapatkan barang berkualitas dengan belanja di sini
             </h4>
-            <button className="bg-secondary lg:w-[213px] h-[68px] rounded-xl text-white my-7 w-full text-[20px] text-thirdary">
+            <Link href={'/product'} className="bg-secondary lg:w-[213px] h-[68px] rounded-xl flex items-center justify-center text-white my-7 w-full text-[20px] text-thirdary">
               Beli Sekarang
-            </button>
+            </Link>
           </div>
           <div className="lg:w-[450px] lg:h-[234px] w-[372px] h-[234px] p-5">
             <Image
@@ -77,9 +77,9 @@ export default async function Home() {
             ))}
           </div>
           <div className="lg:w-full h-full flex justify-center items-center">
-            <button className="bg-thirdary border-light border-2 py-3 px-5 rounded-full lg:w-[236px] w-[200px]">
+            <Link href={'/product'} className="bg-thirdary border-light border-2 py-3 px-5 rounded-full lg:w-[236px] w-[200px]">
               Lihat Selengkapnya
-            </button>
+            </Link>
           </div>
         </div>
 
@@ -116,9 +116,9 @@ export default async function Home() {
             })}
           </div>
           <div className="lg:w-full h-full flex justify-center items-center">
-            <button className="bg-thirdary border-light border-2 py-3 px-5 rounded-full lg:w-[236px] w-[200px]">
+            <Link href={'/product'} className="bg-thirdary border-light border-2 py-3 px-5 rounded-full lg:w-[236px] w-[200px]">
               Lihat Selengkapnya
-            </button>
+            </Link>
           </div>
         </div>
 
