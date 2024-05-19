@@ -58,7 +58,7 @@ export default function Headers() {
           <Link href={'/product'}> <Search/> </Link>
           <div className="flex items-center">
             {status === "authenticated" ? (
-              <Profile image={session?.user?.image} userName={session?.user?.fullname} email={session?.user?.email}/>
+              <Profile image={session?.user?.image || "/img/profile.png"} userName={session?.user?.fullname} email={session?.user?.email}/>
             ) : (
               <div>
                 <button onClick={() => signIn()}>Sign In</button>
@@ -77,10 +77,18 @@ export default function Headers() {
   <div ref={ref} className={`h-screen bg-white text-primary flex flex-col items-center fixed w-[70%] transition-all right-0 top-0 bg-thirdary`}>
 
     <div className="flex flex-col items-center mt-10 gap-2">
+     {status === 'authenticated' ? (
+       <div className="w-full flex flex-col gap-5 justify-center items-center">
+        <div className="w-[46px] h-[46px]">
+       <Image src={session?.user?.image || "/img/profile.png"} height={150} width={150} alt="profile" className="w-full h-full rounded-full"/>
+     </div>
+       <p className="font-medium text-[16px] min-w-full">Hi {session?.user?.fullname}</p>
+       </div>
+     ): (
       <div className="w-[46px] h-[46px]">
-        <Image src={session?.user?.image} height={150} width={150} alt="profile" className="w-full h-full rounded-full"/>
-      </div>
-        <p className="font-medium text-[16px]">Hi {session?.user?.fullname}</p>
+      <Image src="/img/profile.png" height={150} width={150} alt="profile" className="w-full h-full rounded-full"/>
+    </div>
+     )}
     </div>
 
     <div className="mt-6 items-start flex flex-col justify-center">
@@ -101,7 +109,11 @@ export default function Headers() {
     </div>
 
     <div className="flex justify-center">
-    <button className="w-[227px] h-[46px] bg-secondary justify-center flex items-center p-4 text-[white] bottom-0 absolute rounded-[7px] my-5" onClick={() => signOut()}>Keluar</button>
+            {status === 'authenticated' ? (
+                  <button className="w-[227px] h-[46px] bg-secondary justify-center flex items-center p-4 text-[white] bottom-0 absolute rounded-[7px] my-5" onClick={() => signOut()}>Keluar</button>
+            ):(
+              <button className="w-[227px] h-[46px] bg-secondary justify-center flex items-center p-4 text-[white] bottom-0 absolute rounded-[7px] my-5" onClick={() => signIn()}>LogIn</button>
+            )}
     </div>
 
   </div>

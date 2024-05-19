@@ -60,37 +60,41 @@ export default function Page() {
   return (
     <div>
       <Headers />
-      <div className="flex flex-col gap-20">
+      <div className="flex flex-col">
         <div className="mt-[30px]">
           <Search onSearch={setSearchTerm} />
         </div>
-
-        <div className="flex flex-col lg:flex-row items-center justify-center lg:gap-[60px] lg:p-[20px]">
-          {data.map((product: Products) => (
-            <div
-              className="bg-thirdary shadow-sm rounded-md flex flex-col gap-3 items-center justify-center"
-              key={product._id}
-            >
-              <Link key={product._id} href={`/product/${product.slug}`}>
-                <div className="w-[163px] h-[141px] lg:w-[235px] lg:h-[203px] rounded-md">
-                  <Image
-                    className="w-full object-cover rounded-t-2xl"
-                    src={product.imageUrl}
-                    height={150}
-                    width={150}
-                    alt="makananan"
-                  />
-                </div>
-                <div className="m-3 text-[20px]">
-                  <p>{product.title}</p>
+        <div className="flex flex-col lg:justify-between lg:items-stretch items-center gap-5 text-secondary w-full px-8 my-10">
+          <div className="lg:flex lg:flex-row grid grid-cols-2 lg:justify-between  gap-[20px] p-0">
+            {data.map((product: Products) => (
+                <div className="bg-thirdary shadow-sm rounded-md flex flex-col gap-3" key={product._id}> 
+                <Link
+                  key={product._id}
+                  href={`/product/${product.slug}`}
+                  
+                >
+                  <div className="w-[163px] h-[141px] lg:w-[235px] lg:h-[203px] rounded-md">
+                    <Image
+                      className="w-full object-cover rounded-t-2xl"
+                      src={product.imageUrl}
+                      height={150}
+                      width={150}
+                      alt="makananan"
+                    />
+                  </div>
+                  <div className="m-3 text-[20px]">
+                  <p >{product.title}</p>
                   <p className="font-medium">{product.price}</p>
-                </div>
-                <button className="bg-thirdary border-light border-2 p-3 rounded-full m-4">
-                  Lihat Barang
+                  </div>
+                </Link>
+                <button className="bg-thirdary border-light border-2 p-3 rounded-full w-[141px] m-4">
+                  Beli Sekarang
                 </button>
-              </Link>
-            </div>
-          ))}
+              </div>
+            ))}
+          </div>
+          <div className="lg:w-full h-full flex justify-center items-center">
+          </div>
         </div>
 
         <div className="flex justify-center mt-5">

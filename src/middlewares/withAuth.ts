@@ -7,7 +7,7 @@ import {
 } from "next/server";
 
 const onlyAdmin = ["/dashboard"];
-const authPage = ["/login", "/register"];
+const authPage = ["/auth/login", "/auth/register"];
 
 export default function withAuth(
   middleware: NextMiddleware,
@@ -22,7 +22,7 @@ export default function withAuth(
         secret: process.env.NEXT_SECRET_TOKEN,
       });
       if (!token && !authPage.includes(pathname)) {
-        const url = new URL("/login", req.url);
+        const url = new URL("/auth/login", req.url);
         url.searchParams.set("callbackUrl", encodeURI(req.url));
         return NextResponse.redirect(url);
       }

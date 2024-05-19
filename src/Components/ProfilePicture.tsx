@@ -12,7 +12,7 @@ export default function Profile({ image, userName, email }: ProfilePicture) {
       <button onClick={() => setIsOpen((prev) => !prev)}>
         {image && (
           <div className="w-16 h-16">
-            <Image src={image} height={40} width={40} alt="profile" className="w-full h-full object-cover rounded-full" />
+            <Image src={image || "/img/profile.png"} height={40} width={40} alt="profile" className="w-full h-full object-cover rounded-full" />
           </div>
         )}
       </button>

@@ -21,7 +21,7 @@ export default async function Home() {
   return (
     <div className="overflow-x-hidden">
       <Headers />
-      <div className="px-[88px] flex flex-col items-center w-full justify-center">
+      <div className="lg:px-[88px] flex flex-col items-center w-full justify-center">
 
         <div className="flex lg:flex-row justify-between lg:p-10 bg-light lg:w-full lg:rounded-md flex-col-reverse items-center w-screen">
           <div className="flex flex-col gap-5">
@@ -29,7 +29,7 @@ export default async function Home() {
               Dapatkan barang berkualitas dengan belanja di sini
             </h4>
             <Link href={'/product'} className="bg-secondary lg:w-[213px] h-[68px] rounded-xl flex items-center justify-center text-white my-7 w-full text-[20px] text-thirdary">
-              Beli Sekarang
+              Lihat Produk
             </Link>
           </div>
           <div className="lg:w-[450px] lg:h-[234px] w-[372px] h-[234px] p-5">
@@ -48,7 +48,7 @@ export default async function Home() {
           <h6 className="lg:text-[24px] text-[20px] font-medium justify-start w-screen ml-10 lg:w-full text-start">
             Rekomendasi untuk anda
           </h6>
-          <div className="flex justify-between gap-4">
+          <div className="lg:flex lg:flex-row grid grid-cols-2 lg:justify-between  gap-[20px] p-0">
             {data.map((product) => (
                 <div className="bg-thirdary shadow-sm rounded-md flex flex-col gap-3" key={product._id}> 
                 <Link
@@ -83,37 +83,39 @@ export default async function Home() {
           </div>
         </div>
 
-        <div className="flex flex-col lg:justify-between lg:items-stretch items-center gap-5 text-secondary w-full my-10">
-          <h6 className="lg:text-[24px] text-[20px] font-medium justify-start w-screen ml-10 lg:w-full text-start">Paling Populer</h6>
-          <div className="flex justify-between gap-4">
-            {data.map((product) => {
-              return (
+        <div className="flex flex-col lg:justify-between lg:items-stretch items-center gap-5 text-secondary w-full px-8 my-10">
+
+          <h6 className="lg:text-[24px] text-[20px] font-medium justify-start w-screen ml-10 lg:w-full text-start">
+            Paling 
+            Populer
+          </h6>
+          <div className="lg:flex lg:flex-row grid grid-cols-2 lg:justify-between  gap-[20px] p-0">
+            {data.map((product) => (
                 <div className="bg-thirdary shadow-sm rounded-md flex flex-col gap-3" key={product._id}> 
-                  <Link
-                    key={product._id}
-                    href={`/product/${product.slug}`}
-                    
-                  >
-                    <div className="w-full">
-                      <Image
-                        className="w-full object-cover rounded-t-2xl"
-                        src={product.imageUrl}
-                        height={150}
-                        width={150}
-                        alt="makananan"
-                      />
-                    </div>
-                    <div className="m-3 text-[20px]">
-                    <p >{product.title}</p>
-                    <p className="font-medium">{product.price}</p>
-                    </div>
-                  </Link>
-                  <button className="bg-thirdary border-light border-2 p-3 rounded-full w-[141px] bottom-0 m-4">
+                <Link
+                  key={product._id}
+                  href={`/product/${product.slug}`}
+                  
+                >
+                  <div className="w-[163px] h-[141px] lg:w-[235px] lg:h-[203px] rounded-md">
+                    <Image
+                      className="w-full object-cover rounded-t-2xl"
+                      src={product.imageUrl}
+                      height={150}
+                      width={150}
+                      alt="makananan"
+                    />
+                  </div>
+                  <div className="m-3 text-[20px]">
+                  <p >{product.title}</p>
+                  <p className="font-medium">{product.price}</p>
+                  </div>
+                </Link>
+                <button className="bg-thirdary border-light border-2 p-3 rounded-full w-[141px] bottom-0 m-4">
                   Beli Sekarang
                 </button>
-                </div>
-              );
-            })}
+              </div>
+            ))}
           </div>
           <div className="lg:w-full h-full flex justify-center items-center">
             <Link href={'/product'} className="bg-thirdary border-light border-2 py-3 px-5 rounded-full lg:w-[236px] w-[200px]">

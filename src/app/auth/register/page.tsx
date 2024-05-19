@@ -13,7 +13,7 @@ export default function page() {
     e.preventDefault();
     setError("");
     setIsLoading(true);
-    const res = await fetch("api/auth/register", {
+    const res = await fetch("/api/auth/register", {
       method: "POST",
       body: JSON.stringify({
         fullname: e.target.fullname.value,
@@ -24,14 +24,14 @@ export default function page() {
     if (res.status === 200) {
       e.target.reset();
       setIsLoading(false);
-      push("/login");
+      push("/auth/login");
     } else {
       setError("Email Already Exist");
       setIsLoading(false);
     }
   };
   return (
-    <div className="lg:flex lg:flex-row justify-center items-center h-full flex flex-col bg-light p-5">
+    <div className="lg:flex lg:flex-row justify-center items-center h-screen flex flex-col bg-light p-5">
       <div className="lg:bg-thirdary lg:w-[826px] h-full flex flex-col items-center justify-center bg-light">
         <div className="lg:w-[315px] lg:h-[213px] w-[203px] h-[124px]">
           <Image
@@ -123,9 +123,9 @@ export default function page() {
 
         <h6 className="text-[18px]">
           Sudah mempunyai akun?
-          <Link href={"/login"} className="underline">
+          <button onClick={() => signIn()} className="underline">
             Masuk
-          </Link>
+          </button>
         </h6>
       </div>
     </div>
