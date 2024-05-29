@@ -35,8 +35,8 @@ export default function ProductDetailedPage({ params }: { params: { slug: string
   }, [params.slug]);
 
   if (!product) {
-    return   <div className="flex justify-center items-center mt-20">
-    <div className="border-t-4 border-b-4 border-gray-400 rounded-full w-52 h-52 animate-spin"><Image src={'/img/Rectangle 3.png'} className='w-52' width={500} height={500} alt='123'  /></div>
+    return   <div className="flex justify-center items-center mt-20 h-screen">
+    <div className="border-t-4 border-b-4 border-gray-400 rounded-full w-52 h-52 animate-spin"></div>
   </div>
   }
 console.log(product)

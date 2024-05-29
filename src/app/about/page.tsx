@@ -6,16 +6,9 @@ import React from "react";
 import Image from "next/image";
 
 const items = [
-  { imageUrl: "/img/rectangle 3.png", name: "Sena Auliya", job:"Programmer" },
-  { imageUrl: "/img/rectangle 4.png", name: "Dimas Aditya" , job:"Designer"},
+  { imageUrl: "/img/akhdan.jpeg", name: "Sena Auliya", job:"Programmer" },
+  { imageUrl: "/img/dimas.png", name: "Dimas Aditya" , job:"Designer"},
 ];
-
-const image = ["/img/rectangle 3.png", "/img/rectangle 3.png"]
-
-const slides = [
-    <Image key={1} src="/img/rectangle 3.png" alt="Slide 1" className="w-full" />,
-    <Image key={2} src="/img/rectangle 4.png" alt="Slide 2" className="w-full" />,
-  ];
 
 export default function page() {
   return (
