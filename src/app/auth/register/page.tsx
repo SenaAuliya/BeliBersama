@@ -4,11 +4,13 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { signIn } from "next-auth/react";
+import {MailWarning} from "lucide-react"
 
-export default function page() {
+export default function Page() {
   const { push } = useRouter();
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     setError("");
@@ -26,10 +28,12 @@ export default function page() {
       setIsLoading(false);
       push("/auth/login");
     } else {
-      setError("Email Already Exist");
+      const errorMessage = await res.text();
+      setError(errorMessage || "Email Already Exist");
       setIsLoading(false);
     }
   };
+
   return (
     <div className="lg:flex lg:flex-row justify-center items-center h-screen flex flex-col bg-light p-5">
       <div className="lg:bg-thirdary lg:w-[826px] h-full flex flex-col items-center justify-center bg-light">
@@ -55,13 +59,11 @@ export default function page() {
 
       <div className="lg:h-full flex flex-col lg:items-center lg:justify-center lg:w-full bg-light text-secondary gap-6">
         <div>
-          <p className="lg:text-[20px] text-[15px] font-medium">
-            Selamat Datang
-          </p>
-          <h6 className="lg:text-[32px] text-[24px] font-semibold">
-            Buat Akunmu
-          </h6>
+          <p className="lg:text-[20px] text-[15px] font-medium">Selamat Datang</p>
+          <h6 className="lg:text-[32px] text-[24px] font-semibold">Buat Akunmu</h6>
         </div>
+
+        
 
         <form
           action=""
@@ -93,6 +95,11 @@ export default function page() {
               className="lg:w-[514px] lg:h-[60px] h-[44px] border border-primary rounded-[12px] px-3"
               placeholder="Masukkan Email"
             />
+            {error && (
+          <div className="text-[red] text-[18px] flex gap-2 items-center mt-2">
+            <MailWarning color="red" size={"20px"}/>Email Sudah Tersedia<MailWarning color="red" size={"20px"}/>
+          </div>
+        )}
           </div>
           <div className="flex flex-col">
             <label htmlFor="password" className="lg:text-[18px] text-[13px]">
@@ -117,8 +124,13 @@ export default function page() {
           </button>
         </form>
 
-        <button type='button' onClick={() => signIn('google', {callbackUrl:"", redirect:false})} className="bg-thirdary lg:w-[514px] w-[334px] h-[45px] lg:h-[60px] flex lg:align-middle justify-center items-center lg:text-[18px] lg:rounded-[12px] rounded-[8px] border-primary  border-[1px] text-[13px]">
-      <Image src={'/img/logoGoogle.png'} height={30} width={30} alt='LogoGoogle'/>Lanjutkan dengan Google
+        <button
+          type="button"
+          onClick={() => signIn("google", { callbackUrl: "", redirect: false })}
+          className="bg-thirdary lg:w-[514px] w-[334px] h-[45px] lg:h-[60px] flex lg:align-middle justify-center items-center lg:text-[18px] lg:rounded-[12px] rounded-[8px] border-primary border-[1px] text-[13px]"
+        >
+          <Image src={"/img/logoGoogle.png"} height={30} width={30} alt="LogoGoogle" />
+          Lanjutkan dengan Google
         </button>
 
         <h6 className="text-[18px]">

@@ -7,4 +7,4 @@ export function mainMiddleware(request:NextRequest){
    return res
 }
 
-export default withAuth(mainMiddleware, ['/', '/product', '/auth/login'])
+export default withAuth(mainMiddleware, ['/', '/product', '/auth/login', '/studio' ,''])

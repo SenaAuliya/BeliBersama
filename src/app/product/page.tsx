@@ -95,7 +95,7 @@ export default function Page() {
                   <p >{product.title}</p>
                   </div>
                 </Link>
-                  <div className="pb-2">
+                  <div className="pb-2 px-3">
                   <p className="font-medium pb-2">{product.price}</p>
                 <p className="text-[13px] lg:text-base">Lihat Selengkapnya</p>
                   </div>

@@ -6,7 +6,7 @@ import Footer from '@/Components/Footer';
 import ImageComponent from '@/Components/ImageComponent';
 import Headers from '@/Components/Headers';
 import { Star } from 'lucide-react';
-import Image from 'next/image';
+import Link from 'next/link';
 
 async function GetData(slug: string) {
   const query = `*[_type == 'Products' && slug.current == "${slug}"][0]{
@@ -36,7 +36,7 @@ export default function ProductDetailedPage({ params }: { params: { slug: string
 
   if (!product) {
     return   <div className="flex justify-center items-center mt-20 h-screen">
-    <div className="border-t-4 border-b-4 border-gray-400 rounded-full w-52 h-52 animate-spin"></div>
+    <div className="border-t-4 border-b-4 border-gray-400 rounded-full w-[10rem] h-[10rem] animate-spin"></div>
   </div>
   }
 console.log(product)
@@ -52,15 +52,15 @@ console.log(product)
                 <span className="mb-0.5 inline-block text-secondary">{product.category}</span>
                 <h2 className="text-2xl font-bold text-secondary  lg:text-3xl">{product.title}</h2>
               </div>
-              <div className="mb-6 flex items-center gap-3 md:mb-10">
+              {/* <div className="mb-6 flex items-center gap-3 md:mb-10">
               <button className=" bg-hijau flex p-3 rounded-full gap-x-2 text-white">
-                <span className="text-sm">4.2</span>
-                <Star className="h-5 w-5 " />
+                <span className="text-sm text-[white]">4.2</span>
+                <Star className="h-5 w-5" color='white' />
               </button>
               <span className="text-sm text-gray-500 transition duration-100">
                 56 Rantings
               </span>
-            </div>
+            </div> */}
               <div className="mb-4">
                 <div className="flex items-end gap-2">
                   <span className="text-xl font-bold text-secondary md:text-2xl">Rp {product.price}</span>
@@ -70,7 +70,7 @@ console.log(product)
               </div>
               <div className="mb-6 flex items-center gap-2 text-secondary"></div>
               <div className="flex gap-2.5">
-                <button className='bg-hijau h-[60px] px-10 rounded-[12px] text-thirdary lg:text-lg text-[16px]'>Check Out Now</button>
+                <Link href='https://wa.me/6285701467259' className='bg-hijau h-[60px] px-10 rounded-[12px] text-thirdary lg:text-lg text-[16px] flex items-center'>Beli Sekarang</Link>
               </div>
             </div>
           </div>

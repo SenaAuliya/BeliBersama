@@ -5,7 +5,7 @@ import Footer from "@/Components/Footer";
 import { client } from "../../sanity/lib/client";
 import { Products } from "./function/interface";
 async function getData() {
-  const query = `*[_type == 'Products'][0...4]| order(__createdAt desc) {
+  const query = `*[_type == 'Products'][0...4]| order(__createdAt asc) {
     _id,
       price,
       title,
@@ -69,7 +69,7 @@ export default async function Home() {
                   <p >{product.title}</p>
                   </div>
                 </Link>
-                  <div className="pb-2">
+                  <div className="pb-2 px-3">
                   <p className="font-medium pb-2">{product.price}</p>
                 <p className="text-[13px] lg:text-base">Lihat Selengkapnya</p>
                   </div>
@@ -80,7 +80,7 @@ export default async function Home() {
             ))}
           </div>
           <div className="w-full h-full flex justify-center items-center">
-            <Link href={'/product'} className="bg-thirdary border-light border-2 py-3 px-5 rounded-full lg:w-[236px] w-[200px] text-center">
+            <Link href={'/product'} className="bg-thirdary border-light border-2 py-3 px-5 rounded-full lg:w-[236px] w-full text-center">
               Lihat Selengkapnya
             </Link>
           </div>
@@ -112,7 +112,7 @@ export default async function Home() {
                   <p >{product.title}</p>
                   </div>
                 </Link>
-                  <div className="pb-2">
+                  <div className="pb-2 px-3">
                   <p className="font-medium pb-2">{product.price}</p>
                 <p className="text-[13px] lg:text-base">Lihat Selengkapnya</p>
                   </div>
@@ -123,7 +123,7 @@ export default async function Home() {
             ))}
           </div>
           <div className="w-full h-full flex justify-center items-center">
-            <Link href={'/product'} className="bg-thirdary border-light border-2 py-3 px-5 rounded-full lg:w-[236px] w-[200px] text-center">
+            <Link href={'/product'} className="bg-thirdary border-light border-2 py-3 px-5 rounded-full lg:w-[236px] w-full text-center">
               Lihat Selengkapnya
             </Link>
           </div>
